@@ -13,8 +13,6 @@ $stid=oci_parse($conn, "SELECT * FROM USERS WHERE Username='$user' and Password=
 $result=oci_execute($stid);
 $count=oci_fetch_all($stid, $res);;
 if($count==1){
-
-// Register $myusername, $mypassword and redirect to file "login_success.php"
     session_register("user");
     $_SESSION['user']=$user;
     session_register("mypassword"); 

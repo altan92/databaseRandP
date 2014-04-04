@@ -28,7 +28,7 @@
 </tr>
 <tr>
 <td>Password</td>
-<td><input name="password" type="password" id="password"></td>
+<td><input name="password" type="text" id="password"></td>
 </tr>
 
 <td>Location</td>
