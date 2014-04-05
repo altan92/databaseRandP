@@ -6,8 +6,8 @@ $appname= "Rock and Poll";
 $stmt= oci_parse($conn, "select * from questions");
 oci_execute($stmt, OCI_DEFAULT);
 $res= oci_fetch_row($stmt);
-$question= $res[1];
-echo $question;
+//$question= $res[1];
+//echo $question;
 echo <<<_END
 <!DOCTYPE html>
 <html>
@@ -30,10 +30,12 @@ echo <<<_END
   <a href="#" class="control_next">>></a>
   <a href="#" class="control_prev"><</a>
   <ul>
-    <li>$question</li>
-    <li style="background: #aaa;">SLIDE 2</li>
-    <li>SLIDE 3</li>
-    <li style="background: #aaa;">SLIDE 4</li>
+_END;
+
+while($res= oci_fetch_row($stmt))
+    echo"<li>".$res[1]."</li>";
+
+echo <<<_END
   </ul>  
 </div>
 
