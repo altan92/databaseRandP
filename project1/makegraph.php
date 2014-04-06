@@ -1,80 +1,71 @@
 <?php
-
 $yes=$_POST['yes'];
 $no=$_POST['no'];
+echo "<!DOCTYPE html>";
+echo "<html>";
+echo "<head>";
+echo    "<base href=\"http://demos.telerik.com/kendo-ui/dataviz/pie-charts/index.html\">";
+echo    "<style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>";
+echo    "<title></title>";
+echo    "<link href=\"http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css\" rel=\"stylesheet\" />";
+echo    "<link href=\"http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css\" rel=\"stylesheet\" />";
+echo    "<link href=\"http://cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.min.css\" rel=\"stylesheet\" />";
+echo    "<link href=\"http://cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.default.min.css\" rel=\"stylesheet\" />";
+echo    "<script src=\"http://cdn.kendostatic.com/2014.1.318/js/jquery.min.js\"></script>";
+echo    "<script src=\"http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js\"></script>";
+echo "</head>";
+echo "<body>";
+echo    "<div id=\"example\" class=\"k-content\">";
+echo    "<div class=\"chart-wrapper\">";
+echo        "<div id=\"chart\" style=\"background: center no-repeat url('../../content/shared/styles/world-map.png');\"></div>";
+echo   "</div>";
+echo   "<script>";
+echo        "function createChart() {";
+echo            "$(\"#chart\").kendoChart({";
+echo            "title: {";
+echo                    "position: \"bottom\",";
+echo                    "text: \"Praise the power of Yilma\"";
+echo                "},";
+echo                "legend: {";
+echo                    "visible: false";
+echo                "},";
+echo                "chartArea: {";
+echo                    "background: \"\"";
+echo                "},";
+echo                "seriesDefaults: {";
+echo                    "labels: {";
+echo                        "visible: true,";
+echo                        "background: \"transparent\",";
+echo                        "template: \"#= category #: #= value#%\"";
+echo                    "}";
+echo                "},";
+echo                "series: [{";
+echo                    "type: \"pie\",";
+echo                    "startAngle: 150,";
+echo                    "data: [{";
+echo                        "category: \"No\",";
+echo                        "value:".$no. ",";
+echo                        "color: \"#000000\"";
+echo                    "},{";
+echo                        "category: \"Yes\",";
+echo                        "value:".$yes.",";
+echo                        "color: \"#00FF00\"";
+echo                    "}]";
+echo                "}],";
+echo                "tooltip: {";
+echo                    "visible: true,";
+echo                    "format: \"{0}%\"";
+echo                "}";
 
-echo <<<_END
-<!DOCTYPE html>
-<html>
-<head>
-    <base href="http://demos.telerik.com/kendo-ui/dataviz/pie-charts/index.html">
-    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
-    <title></title>
-    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
-    <script src="http://cdn.kendostatic.com/2014.1.318/js/jquery.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
-</head>
-<body>
-    <div id="example" class="k-content">
-    <div class="chart-wrapper">
-        <div id="chart" style="background: center no-repeat url('../../content/shared/styles/world-map.png');"></div>
-    </div>
-    <script>
-        function createChart() {
-            $("#chart").kendoChart({
-                title: {
-                    position: "bottom",
-                    text: "Share of Internet Population Growth, 2007 - 2012"
-                },
-                legend: {
-                    visible: false
-                },
-                chartArea: {
-                    background: ""
-                },
-                seriesDefaults: {
-                    labels: {
-                        visible: true,
-                        background: "transparent",
-                        template: "#= category #: #= value#%"
-                    }
-                },
-                series: [{
-                    type: "pie",
-                    startAngle: 150,
-                    data: [{
-                        category: "YES",
-_END;
-echo                        "value:".$yes. ",";
-echo <<<_END
-                      color: "#9de219"
-                    },{
-                        category: "NO",
-_END;
-echo                    "value:".$no. ",";                        
-echo <<<_END
-                        value: 50,
-                        color: "#87CEEB"
-                    
-                    }]
-                }],
-                tooltip: {
-                    visible: true,
-                    format: "{0}%"
-                }
-            });
-        }
-
-                $(document).ready(createChart);
-                $(document).bind("kendo:skinChange", createChart);
-                    </script>
-                        </div>
+echo            "});";
+echo        "}";
+echo        "$(document).ready(createChart);";
+echo        "$(document).bind(\"kendo:skinChange\", createChart);";
+echo    "</script>";
+echo "</div>";
 
 
-</body>
-</html>
-_END;
+echo "</body>";
+echo "</html>";
+
 ?>
