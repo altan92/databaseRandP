@@ -34,13 +34,16 @@ echo <<<_END
 _END;
 
 while($res= oci_fetch_row($stmt))
+{
     echo "<li>" .
 	"$res[1]" .
-	"<div class="center">" .
-	"<a href="javascript:void(0);" class="myButton1">YES</a>" .
-	"<a href="javascript:void(0);" class="myButton2">NO</a>" .
-	"</div>" .
+        "<br>" .
+	'<div class="center">' .
+	'<a href="javascript:void(0);" class="myButton1">YES</a>' .
+	'<a href="javascript:void(0);" class="myButton2">NO</a>' .
+	'</div>' .
 	"</li>";
+}
 
 echo <<<_END
   </ul>  

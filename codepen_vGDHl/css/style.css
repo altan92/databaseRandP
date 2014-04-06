@@ -38,7 +38,7 @@ h1 {
   display: block;
   float: left;
   margin: 0;
-  padding: 0;
+  padding-top: 225px;
   width: 1000px;
   height: 500px;
   background: #ccc;
