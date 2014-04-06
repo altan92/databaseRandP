@@ -30,13 +30,28 @@ $statement1 = oci_parse($conn, $sql1);
 oci_execute($statement1);
 $row1 = oci_fetch_array($statement1, OCI_NUM);
 echo  "<td>".$row1[0]. "</td>";
-
+$yes=$row1[0];
 
 $sql1 =  "select count(*) from Polls P, Has H where P.q_id =$qid and P.answer=0 and P.username=H.username AND H.state_name='$state'";
 $statement1 = oci_parse($conn, $sql1);
 oci_execute($statement1);
 $row1 = oci_fetch_array($statement1, OCI_NUM);
 echo  "<td>".$row1[0]. "</td>";
+$no=$row1[0];
+
+if ($yes==0 and $no==0){
+    $yes=50;
+    $no=50;
+}
+else{
+    $total=floatval($yes)+floatval($no);
+    $yes=floatval($yes)/floatval($total)*100;
+    $no=100-floatval($yes);
+    print $total;
+
+}
+
+
 $sql1 = "select Genre_name from Genre G, Can_Be C where G.g_id=C.g_id AND C.q_id =$qid";
 $statement1 = oci_parse($conn, $sql1);
 oci_execute($statement1);
@@ -48,13 +63,6 @@ else
 echo "</tr></table></body></html>";
 
 
-$sql1 = "select stats from data where q_id =$qid";
-$statement1 = oci_parse($conn, $sql1);
-oci_execute($statement1);
-$row1 = oci_fetch_array($statement1, OCI_NUM);
-
-$yes=$row1[0];
-$no=intval(100-$yes);
 
 echo <<<_END
 <!DOCTYPE html>
