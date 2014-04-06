@@ -22,6 +22,10 @@ if(!oci_fetch_array($statement, OCI_NUM) and $user){
     $sql2 = "insert into users (Password,gender,age,Username) VALUES ('$password', '$gender', $age, '$user')"; 
     $stmt = oci_parse($conn, $sql2);
     oci_execute($stmt);
+    $sql2 = "Insert into Has (Username,state_name) VALUES ('$user','$location')"; 
+    $stmt = oci_parse($conn, $sql2);
+    oci_execute($stmt);
+    
     $_SESSION['user']=$user;
     header('Location: alf_tom_home.php');
     
