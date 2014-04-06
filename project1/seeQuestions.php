@@ -4,7 +4,41 @@ ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
 
-$sql = "select * from Questions";
+$genre=$_POST["genre"];
+if ($genre=="All"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q, Genre G,Can_Be C Where Q.q_id=C.q_id AND G.g_id=C.g_id";
+    print $genre;
+}
+
+
+if ($genre=="Business"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q,Business G,Can_Be C Where Q.q_id=C.q_id And G.g_id=C.g_id";
+    print $genre;
+}
+
+
+if ($genre=="Pop Culture"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q,Pop_culture G,Can_Be C Where Q.q_id=C.q_id And G.g_id=C.g_id";
+    print $genre;
+}
+
+
+if ($genre=="Movies"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q,Movies G,Can_Be C Where Q.q_id=C.q_id And G.g_id=C.g_id";
+    print $genre;
+}
+
+
+if ($genre=="Education"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q,Education G,Can_Be C Where Q.q_id=C.q_id And G.g_id=C.g_id";
+    print $genre;
+}
+
+
+if ($genre=="World News"){
+    $sql = "select Q.question,G.genre_name,Q.q_id from Questions Q,World_News G,Can_Be C Where Q.q_id=C.q_id And G.g_id=C.g_id";
+    print $genre;
+}
 $statement = oci_parse($conn, $sql);
 oci_execute($statement);
 echo <<<_END
@@ -18,21 +52,21 @@ echo <<<_END
 <table border="2">
 <tr>
   <td>Question</td>
-  <td>Qid</td>
 <td>See question data</td>
+<td>Genre name</td>
 </tr>
 _END;
 
 
 while ( $row = oci_fetch_array($statement, OCI_NUM)) {
     echo "<tr>";
-    echo "<td>".$row[1]."</td>";
     echo "<td>".$row[0]."</td>";
     echo "<td style='text-align:center;vertical-align:middle'>";
     echo "<form method=\"post\" action=\"displayQuestion.php\">";
     echo "<input type=\"submit\" value=\"Question data\" >";
-    echo "<input type=\"hidden\" name=\"qid\"  value=".$row[0].">";
-    echo "</form></td></tr>";
+    echo "<input type=\"hidden\" name=\"qid\"  value=".$row[2].">";
+    echo "</form></td>";
+    echo "<td>".$row[1]."</td></tr>";
 }
 
 
