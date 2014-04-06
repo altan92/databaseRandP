@@ -21,7 +21,8 @@ if($loggedin)
 { 
         echo("<br /><ul class= 'menu'>" .
                 "<li><a href='generatedata.php'>Graph</a></li>" .
-                "<li><a href='logout.php'>Log out</a></li></ul><br />".
+                "<li><a href='logout.php'>Log out</a></li>".
+                "<li><a href='seeQuestions.php'>See all questions</a></li></ul><br />".
                 "<span class='info'>&#8658; You are now logged in to " .
                 "view this page.</span><br /><br />");
 }

@@ -1,6 +1,6 @@
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 <tr>
-<form name="form1" method="post" action="checklogin.php">
+<form name="form1" method="post" action="project1/updateAns.php">
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 <tr>
@@ -9,13 +9,22 @@
 <tr>
 <td width="78">Username</td>
 <td width="6">:</td>
-<td width="294"><input name="myusername" type="text" id="myusername"></td>
+<td width="294"><input name="user" type="text" id="user"></td>
 </tr>
 <tr>
-<td>Password</td>
+<td>QID</td>
 <td>:</td>
-<td><input name="mypassword" type="password" id="mypassword"></td>
+<td><input name="q_id" type="text" id="q_id"></td>
 </tr>
+
+<tr>
+<td>answer</td>
+<td>:</td>
+<td><input name="answer" type="text" id="answer"></td>
+</tr>
+
+
+
 <tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -26,3 +35,4 @@
 </form>
 </tr>
 </table>
+

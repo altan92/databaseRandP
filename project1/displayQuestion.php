@@ -1,10 +1,90 @@
 <?php
+$qid=$_POST["qid"];
+ini_set('display_errors', 'On');
+$db = "w4111c.cs.columbia.edu:1521/adb";
+$conn = oci_connect("ti2181", "yungalf01", $db);
 
-$yes=$_POST['yes'];
-$no=$_POST['no'];
 
 echo <<<_END
 <!DOCTYPE html>
+<html>
+<body>
+
+<table align="right"  style="float: left" class="box" border="1px" width="65%">
+<tr>
+<TH>Total Answers</TH>
+<TH>Total Yes's</TH>
+<TH>Total No's</TH>
+<TH>Genre</TH>
+</tr><tr align="center">
+_END;
+
+
+$sql = "select count(*) from Polls where q_id =$qid";
+$statement = oci_parse($conn, $sql);
+oci_execute($statement);
+$row = oci_fetch_array($statement, OCI_NUM);
+echo  "<td>".$row[0]. "</td>";
+
+$sql1 = "select count(*) from Polls where q_id =$qid and answer=1";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+$row1 = oci_fetch_array($statement1, OCI_NUM);
+echo  "<td>".$row1[0]. "</td>";
+
+
+$sql1 = "select count(*) from Polls where q_id =$qid and answer=0";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+$row1 = oci_fetch_array($statement1, OCI_NUM);
+echo  "<td>".$row1[0]. "</td>";
+$sql1 = "select Genre_name from Genre G, Can_Be C where G.g_id=C.g_id AND C.q_id =$qid";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+if($row1 = oci_fetch_array($statement1, OCI_NUM))
+    echo  "<td>".$row1[0]. "</td>";
+else
+    echo  "<td>No Genre</td>";
+
+echo "</tr></table></body></html>";
+
+
+
+
+
+$sql1 = "select stats from data where q_id =$qid";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+$row1 = oci_fetch_array($statement1, OCI_NUM);
+
+$yes=$row1[0];
+$no=intval(100-$yes);
+
+
+
+echo <<<_END
+<!DOCTYPE html>
+<html>
+<body>
+
+<table style="float: left" class="box" border="1px" style="width:300px">
+<tr>
+<TH>Interests of those who answered this question</TH>
+</tr>
+_END;
+
+$sql1 = "select distinct i_name from Have H, Polls P where P.q_id=$qid AND P.Username =H.username";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+
+while($row1 = oci_fetch_array($statement1, OCI_NUM))
+    echo  "<tr><TH><span style=\"font-weight: normal;\">".$row1[0]."</span> </TH></tr>";
+echo "</tr></table></body></html>";
+oci_close($conn);
+
+
+echo <<<_END
+    <!DOCTYPE html>
 <html>
 <head>
     <base href="http://demos.telerik.com/kendo-ui/dataviz/pie-charts/index.html">
@@ -46,17 +126,16 @@ echo <<<_END
                     type: "pie",
                     startAngle: 150,
                     data: [{
-                        category: "YES",
+                        category: "No", 
 _END;
-echo                        "value:".$yes. ",";
+echo                        "value:".$no. ",";
 echo <<<_END
                       color: "#9de219"
                     },{
-                        category: "NO",
+                        category: "Yes",                 
 _END;
-echo                    "value:".$no. ",";                        
+echo                    "value:".$yes. ",";                        
 echo <<<_END
-                        value: 50,
                         color: "#87CEEB"
                     
                     }]
@@ -77,4 +156,7 @@ echo <<<_END
 </body>
 </html>
 _END;
+
+
+
 ?>
