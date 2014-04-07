@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
@@ -25,14 +24,27 @@ echo "<title>$appname$userstr</title><link rel='stylesheet'" .
         "</head><body><div class='appname'>$appname$userstr</div>";
 
 if($loggedin)
-{ 
-        echo("<br /><ul class= 'menu'>" .
-                "<li><a href='updateAns.php'>Graph</a></li>" .
+{
+ 
+echo <<<_END
+	<nav>
+            <ul class="fancyNav">
+                <li id="home"><a href='alf_tom_main.php' class="homeIcon">Home</a></li>
+                <li id="news"><a href=#about>About us</a></li>
+                <li id="about"><a href='generatedata.php'>Graph</a></li>
+                <li id="services"><a href='logout.php'>Log out</a></li>
+                <li id="seequestions"><a href='seequestion.php'>See all questions</a></li>
+                <li id="contact"><a href="#contact">Contact us</a></li>
+            </ul><br />    
+            
+        </nav>
+_END;
+        /*echo("<br /><ul class= 'menu'>" .
+                "<li><a href='generatedata.php'>Graph</a></li>" .
                 "<li><a href='logout.php'>Log out</a></li>".
-                "<li><a href='map.php'>Search questions by state</a></li>".
-                "<li><a href='seequestion.php'>Search questions</a></li></ul><br />".
+                "<li><a href='seeQuestions.php'>See all questions</a></li></ul><br />".
                 "<span class='info'>&#8658; You are now logged in to " .
-                "view this page.</span><br /><br />");
+                "view this page.</span><br /><br />");*/
 }
 else
 {
@@ -60,7 +72,6 @@ _END;
 }
 oci_close($conn);
 ?> 
-
 
 
 
