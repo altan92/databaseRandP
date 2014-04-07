@@ -39,8 +39,8 @@ while($res= oci_fetch_row($stmt))
 	"$res[1]" .
         "<br>" .
 	'<div class="center">' .
-	'<a href="javascript:void(0);" class="myButton1">YES</a>' .
-	'<a href="javascript:void(0);" class="myButton2">NO</a>' .
+	'<a href="javascript:void(0);"onclick=test('.$res[0].') class="myButton1">'."$res[2]".'</a>' .
+	'<a href="javascript:void(0);" class="myButton2">'."$res[3]".'</a>' .
 	'</div>' .
 	"</li>";
 }
