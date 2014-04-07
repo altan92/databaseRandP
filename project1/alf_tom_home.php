@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
@@ -58,6 +59,7 @@ _END;
 }
 oci_close($conn);
 ?> 
+
 
 
 
