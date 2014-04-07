@@ -27,9 +27,10 @@ echo "<title>$appname$userstr</title><link rel='stylesheet'" .
 if($loggedin)
 { 
         echo("<br /><ul class= 'menu'>" .
-                "<li><a href='generatedata.php'>Graph</a></li>" .
+                "<li><a href='updateAns.php'>Graph</a></li>" .
                 "<li><a href='logout.php'>Log out</a></li>".
-                "<li><a href='seeQuestions.php'>See all questions</a></li></ul><br />".
+                "<li><a href='map.php'>Search questions by state</a></li>".
+                "<li><a href='seequestion.php'>Search questions</a></li></ul><br />".
                 "<span class='info'>&#8658; You are now logged in to " .
                 "view this page.</span><br /><br />");
 }

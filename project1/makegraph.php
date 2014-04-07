@@ -1,7 +1,10 @@
 <?php
-
-$yes=$_POST['yes'];
-$no=$_POST['no'];
+$sql1 = "select stats from data where q_id =$q_id";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+$row1 = oci_fetch_array($statement1, OCI_NUM); 
+$yes=$row1[0];
+$no=intval(100-$yes);
 
 echo <<<_END
 <!DOCTYPE html>
@@ -56,7 +59,6 @@ echo <<<_END
 _END;
 echo                    "value:".$no. ",";                        
 echo <<<_END
-                        value: 50,
                         color: "#87CEEB"
                     
                     }]
