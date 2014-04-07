@@ -1,5 +1,31 @@
+
+.error{
+        color:red;
+       
+}
+
+.welcome{
+        font-size: 30pt;
+        color: white;
+        letter-spacing: 10px;
+        padding: 180px 10px;
+        margin-left: 500px;}
+
+
+.caption{
+       
+        font-size: 15pt;
+        color: white;
+        margin-top: -200px;
+        margin-left: 600px;}
+
+
+
 * {
-        font-family: verdana, sans-serif;
+        
+        //font: 20px/1 Lobster,Arial,sans-serif;
+        //font-family: verdana, sans-serif;
+        font-family: 'Segoe UI Light', 'Segoe UI', Arial, sans-serif;
         font-size: 14pt;}
 
 body {
@@ -35,6 +61,11 @@ li a:hover, .button: hover{
         font-size: 40pt;
         padding: 4px;}
 
+.fieldname {
+        float:left;
+        width: 120px;
+}
+
 .main {
         margin-left:40px;}
 
@@ -56,6 +87,7 @@ li a:hover, .button: hover{
         -moz-box-shadow:2px 2px 2px #888;
         -webkit-box-shadow:2px 2px 2px #888;
         box-shadow: 2px 2px 2px #888;}
+
 
 nav {
         text-align:center;

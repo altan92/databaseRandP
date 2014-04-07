@@ -40,10 +40,13 @@ echo <<<_END
                 <li id="home"><a href='alf_tom_main.php' class="homeIcon">Home</a></li>
                 <li id="news"><a href=#about>About us</a></li>
                 <li id="about"><a href='signup.php'>Sign up</a></li>
-                <li id="services"><a href='main_login.php'>Log in</a></li>
+                <li id="services"><a href='login.php'>Log in</a></li>
                 <li id="contact"><a href="#contact">Contact us</a></li>
-            </ul>
+            </ul><br />    
+            
         </nav>
+        <div class='welcome'> DATA EVOLVED </div><br />
+        <div class='caption'> A Visual Polling Platform</div><br />
 _END;
 		
 		/*echo("<br /><ul class= 'menu'>" .
