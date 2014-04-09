@@ -32,7 +32,7 @@ echo <<<_END
                 <li id="home"><a href='alf_tom_main.php' class="homeIcon">Home</a></li>
                 <li id="news"><a href=#about>About us</a></li>
                 <li id="services"><a href='logout.php'>Log out</a></li>
-                <li id="about"><a href='index.php'>Browse questions</a></li>
+                <li id="about"><a href='project/index.php'>Browse questions</a></li>
                 <li id="seequestions"><a href='seequestion.php'>See all questions</a></li>
                 <li id="contact"><a href="#contact">Contact us</a></li>
             </ul><br />    

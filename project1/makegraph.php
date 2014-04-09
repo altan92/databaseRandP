@@ -1,7 +1,15 @@
 <?php
+$db = "w4111c.cs.columbia.edu:1521/adb";
+$conn = oci_connect("ti2181", "yungalf01", $db);
 
-$yes=50;
-$no=50;
+$q_id=$_GET["val"];
+
+$sql1 = "select stats from data where q_id =$q_id";
+$statement1 = oci_parse($conn, $sql1);
+oci_execute($statement1);
+$row1 = oci_fetch_array($statement1, OCI_NUM); 
+$yes=$row1[0];
+$no=intval(100-$yes);
 
 echo <<<_END
 <!DOCTYPE html>

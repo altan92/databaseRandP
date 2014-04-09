@@ -1,11 +1,14 @@
 <?php
+include_once 'alf_tom_home.php';
 ini_set('display_errors', 'On');
 $db= "w4111c.cs.columbia.edu:1521/adb";
 $conn= oci_connect("ti2181", "yungalf01", $db);
 $appname= "Rock and Poll";
 $stmt= oci_parse($conn, "select * from questions");
 oci_execute($stmt, OCI_DEFAULT);
-$res= oci_fetch_row($stmt);
+
+$user=$_SESSION['user'];
+
 //$question= $res[1];
 //echo $question;
 echo <<<_END
@@ -25,7 +28,6 @@ echo <<<_END
 
 <body>
 
-  <h1>Incredibly Basic Slider</h1>
 
 <div id="slider">
   <a href="#" class="control_next">>></a>
@@ -39,22 +41,28 @@ while($res= oci_fetch_row($stmt))
 	"$res[1]" .
         "<br>" .
         '<div class="center">' .
-         '<form name="form"  method="get">'.
-          '<input type="hidden" name="val" value='.$res[0].'>'.
+         '<form action="updateAns.php"  method="get">'.
           '<button type="submit" class="myButton1">'."$res[2]".'</button>'.
-         '<button type="submit" class="myButton2">'."$res[3]".'</button>'.
-         ' </form>'.
+          '<input type="hidden" name="val" value='.$res[0].'>'.
+          '<input type="hidden" name="ans" value=1>'.
+          '<input type="hidden" name="user" value='.$user.'>'.
+          '</form>'.
+          '</div>'.
+          '<div class="center">'.
+          '<form action="updateAns.php"  method="get">'.
+          '<button type="submit" class="myButton2">'."$res[3]".'</button>'.
+          '<input type="hidden" name="val" value='.$res[0].'>'.
+          '<input type="hidden" name="ans" value=0>'.
+          '<input type="hidden" name="user" value='.$user.'>'.
+          ' </form>'.
           '</div>' .
 	"</li>";
-
 
 if (isset($_GET['val'])){
     print "Success";    
     $q_id=$_GET['val'];
     
-    unset($_GET['val']);
     print $q_id;
-    include "makegraph.php";
 }
 
 
@@ -70,10 +78,6 @@ echo <<<_END
   </ul>  
 </div>
 
-<div class="slider_option">
-  <input type="checkbox" id="checkbox">
-  <label for="checkbox">Autoplay Slider</label>
-</div>
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
@@ -83,7 +87,7 @@ echo <<<_END
 
 </html>
 _END;
-
+oci_close($conn);
 ?>
 
 

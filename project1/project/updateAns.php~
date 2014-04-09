@@ -2,9 +2,10 @@
 ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
-$user=$_GET['user'];
+$user='ti2181';
 $q_id=$_GET['val'];
 $answer=$_GET['ans'];
+
 $sql="select * From Polls Where Username='$user' AND q_id=$q_id";
 $sql2 = "insert into Polls (Username,q_id,answer) VALUES ('$user',$q_id,$answer)"; 
 
@@ -43,9 +44,9 @@ echo <<<_END
 </script> 
     </html>
 _END;
+header("location:index.php");
 
-$qid=$q_id;
-include_once "displayQuestion.php";
+oci_close($conn);
 }
 
 

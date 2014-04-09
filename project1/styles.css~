@@ -268,7 +268,7 @@ nav {
   padding-top: 225px;
   width: 1000px;
   height: 800px;
-  background: #ccc;
+  background: red;
   //background-image:url("zwartevilt.png");
   text-align: center;
   //line-height: 300px;
