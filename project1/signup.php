@@ -18,7 +18,7 @@ echo <<<_END
  
 <form name="form1" method="post" action="checknewuser.php">
 <td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" background-image: "url('bg_tile.jpg')" >
+<table width="100%" border="0" cellpadding="3" cellspacing="1" background-image: "url('bg_tile.jpg')" style='margin-left:500px' >
 <tr>
 <td colspan="3"><strong>Member Login </strong></td>
 </tr>

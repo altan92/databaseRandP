@@ -1,7 +1,7 @@
 <?php
 include_once 'alf_tom_home.php';
 
-echo "<br /><span class='main'>Welcome to Rock and Poll,";
+echo "<div class='caption' style='margin-top:5px;'>Welcome to Rock and Poll,";
 
 if($loggedin) echo " $user, you are logged in.";
 else echo ' please sign up and/or log in to join in.';

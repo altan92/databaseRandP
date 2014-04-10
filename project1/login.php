@@ -3,7 +3,7 @@ include_once 'alf_tom_home.php';
 ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
-echo "<div class='main'><h3>Please enter your details to log in</h3>";
+echo "<div class='main' style='margin-left:500px'><h3>Please enter your details to log in</h3>";
 $error=$user=$pass="";
 
 if(isset($_POST['user']))
