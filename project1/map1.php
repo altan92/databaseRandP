@@ -1,3 +1,5 @@
+<?php
+echo <<<_END
 <div style="height: 495px; width: 800px; margin-left:auto; margin-right:auto; "><map name="ImageMap_1_1163747142" id="ImageMap_1_1163747142">
 <area href="displaymapquestion.php?qid=1&state=Alabama" shape="poly" coords="537,310,556,377,518,382,518,395,506,391,504,312" alt="Alabama" title="Alabama" />
 <area href="displaymapquestion.php?qid=1&state=Alaska" shape="poly" coords="127,381,128,451,148,457,171,481,171,491,153,491,132,461,98,456,83,473,10,482,55,456,34,431,43,391,60,375,89,365" alt="Alaska" title="Alaska" />
@@ -30,7 +32,11 @@
 <area href="displaymapquestion.php?qid=1&state=New_hampshire" shape="poly" coords="692,95,688,140,711,134,697,91" alt="New Hampshire" title="New Hampshire" />
 <area href="displaymapquestion.php?qid=1&state=New_jersey" shape="poly" coords="668,173,667,188,673,193,665,200,675,212,687,187,680,182,680,176" alt="New Jersey" title="New Jersey" />
 <area href="displaymapquestion.php?qid=1&state=New+Mexico" shape="poly" coords="204,267,290,275,281,364,204,360,202,370,189,366" alt="New Mexico" title="New Mexico" />
-<area href="displaymapquestion.php?qid=1&state=New+York" shape="poly" coords="607,148,597,171,658,159,667,170,680,174,680,180,687,184,707,169,685,171,682,154,682,139,670,103,648,107,629,139" alt="New York" title="New York" />
+_END;
+
+echo "<area href=\"displaymapquestion.php?qid=".$qid."&state=New+York\" shape=\"poly\" coords=\"607,148,597,171,658,159,667,170,680,174,680,180,687,184,707,169,685,171,682,154,682,139,670,103,648,107,629,139\" alt=\"New York\" title=\"New York\" />";   
+echo <<<_END
+
 <area href="displaymapquestion.php?qid=1&state=North+Carolina" shape="poly" coords="589,274,556,305,597,298,624,300,641,313,682,278,670,258" alt="North Carolina" title="North Carolina" />
 <area href="displaymapquestion.php?qid=1&state=North+Dakota" shape="poly" coords="293,63,288,115,380,120,373,67" alt="North Dakota" title="North Dakota" />
 <area href="displaymapquestion.php?qid=1&state=Ohio" shape="poly" coords="545,234,567,238,572,244,596,203,592,178,563,187,553,184,538,186,542,229" alt="Ohio" title="Ohio" />
@@ -59,6 +65,5 @@
 <area href="displaymapquestion.php?qid=1&state=Vermont" shape="rect" coords="607,53,651,72" alt="Vermont" title="Vermont" />
 <area href="displaymapquestion.php?qid=1&state=Rhode+Island" shape="rect" coords="720,163,796,184" alt="Rhode Island" title="Rhode Island" /></map><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Map_of_USA_with_state_names.svg/800px-Map_of_USA_with_state_names.svg.png" width="800" height="495" usemap="#ImageMap_1_1163747142" />
 
-
-
-
+_END;
+?>
