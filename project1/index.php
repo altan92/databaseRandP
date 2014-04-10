@@ -6,7 +6,7 @@ $conn= oci_connect("ti2181", "yungalf01", $db);
 $appname= "Rock and Poll";
 
 $user=$_SESSION['user'];
-$stmt= oci_parse($conn, "select * from questions where q_id NOT IN(Select q_id From Polls Where Username='$user')")
+$stmt= oci_parse($conn, "select * from questions where q_id NOT IN(Select q_id From Polls Where Username='$user')");
 
 oci_execute($stmt, OCI_DEFAULT);
 

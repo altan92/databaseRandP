@@ -1,4 +1,5 @@
 <?php
+include_once "alf_tom_home.php";
 ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
@@ -33,6 +34,7 @@ if (!oci_fetch_array($statement, OCI_NUM)){
     
     $qid=$q_id;
     include_once "displayQuestion.php";
+    
 }
 else{
 echo <<<_END

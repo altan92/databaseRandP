@@ -166,6 +166,12 @@ echo <<<_END
          <input type='submit' value='Submit' />  
           </form>
 _END;
+echo <<<_END
+<form action=index.php method='GET'>
+        <font color="white">Back to questions</font><br />
+         <input type='submit' value='Submit' />  
+          </form>
+_END;
 
 include_once('map1.php');
 

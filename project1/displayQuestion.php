@@ -1,12 +1,11 @@
 <?php
 
-
 echo <<<_END
 <!DOCTYPE html>
 <html>
 <body>
 
-<table align="right"  style="float: left" class="box" border="1px" width="65%">
+<table align="right"  style="float: left" class="box" border="1px" width="60%">
 <tr>
 <TH>Total Answers</TH>
 <TH>Total Yes's</TH>
@@ -163,6 +162,12 @@ echo <<<_END
           </form>
 _END;
 
+echo <<<_END
+<form action=index.php method='GET'>
+        <font color="white">Back to questions</font><br />
+         <input type='submit' value='Back to questions' />  
+          </form>
+_END;
 include_once('map1.php');
 
 ?>

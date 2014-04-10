@@ -1,4 +1,5 @@
 <?php
+include_once "alf_tom_home.php";
 $qid=$_GET["qid"];
 $state=$_GET["state"];
 ini_set('display_errors', 'On');
@@ -9,7 +10,7 @@ echo <<<_END
 <html>
 <body>
 
-<table align="right"  style="float: left" class="box" border="1px" width="65%">
+<table align="right"  style="float: left" class="box" border="1px" width="60%">
 <tr>
 <TH>Total Answers</TH>
 <TH>Total Yes's</TH>
