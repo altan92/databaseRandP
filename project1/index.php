@@ -4,10 +4,12 @@ ini_set('display_errors', 'On');
 $db= "w4111c.cs.columbia.edu:1521/adb";
 $conn= oci_connect("ti2181", "yungalf01", $db);
 $appname= "Rock and Poll";
-$stmt= oci_parse($conn, "select * from questions");
-oci_execute($stmt, OCI_DEFAULT);
 
 $user=$_SESSION['user'];
+$stmt= oci_parse($conn, "select * from questions where q_id NOT IN(Select q_id From Polls Where Username='$user')")
+
+oci_execute($stmt, OCI_DEFAULT);
+
 
 echo <<<_END
 <!DOCTYPE html>
