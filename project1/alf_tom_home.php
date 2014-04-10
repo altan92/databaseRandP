@@ -30,7 +30,7 @@ echo <<<_END
 	<nav>
             <ul class="fancyNav">
                 <li id="home"><a href='alf_tom_main.php' class="homeIcon">Home</a></li>
-                <li id="news"><a href=#about>About us</a></li>
+                <li id="news"><a href=profile.php>Profile</a></li>
                 <li id="services"><a href='logout.php'>Log out</a></li>
                 <li id="about"><a href='index.php'>Browse questions</a></li>
                 <li id="seequestions"><a href='seequestion.php'>See all questions</a></li>
@@ -52,7 +52,7 @@ echo <<<_END
 	<nav>
             <ul class="fancyNav">
                 <li id="home"><a href='alf_tom_main.php' class="homeIcon">Home</a></li>
-                <li id="news"><a href=#about>About us</a></li>
+                <li id="news"><a href=about.php>About us</a></li>
                 <li id="about"><a href='signup.php'>Sign up</a></li>
                 <li id="services"><a href='login.php'>Log in</a></li>
                 <li id="contact"><a href="#contact">Contact us</a></li>

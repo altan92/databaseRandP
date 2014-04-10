@@ -1,14 +1,17 @@
-<?php include_once "alf_tom_main.php";?>
+<?php include_once "alf_tom_home.php";?>
 <!DOCTYPE html>
 <html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
 <body >
 <table style="width:1000px" align="center">
-<table border="2">
+<table class="flat-table flat-table-1" border="2">
 <TH>Search for</TH>
 <tr>
 <td>
 <form method="post">
-<input type="submit" value="All Questions" >
+<input type="submit" class="myButton3"  value="All Questions" >
 <input type="hidden" name="genre" value="All">
 </form>
 </td>
@@ -17,7 +20,7 @@
 <tr>
 <td>
 <form method="post">
-<input type="submit" value="Business Questions" >
+<input type="submit" class="myButton3" value="Business Questions" >
 <input type="hidden" name="genre"  value="Business">
 </form>
 </td>
@@ -25,7 +28,7 @@
 <tr>
 <td>
 <form method="post" >
-<input type="submit" value="Pop Culture Questions">
+<input type="submit" class="myButton3" value="Pop Culture Questions">
 <input type="hidden" name="genre"  value="Pop Culture">
 </form>
 </td>
@@ -33,21 +36,21 @@
 <tr>
 <td>
 <form method="post">
-<input type="submit" value="Movies Questions">
+<input type="submit" class="myButton3" value="Movies Questions">
 <input type="hidden" name="genre" value="Movies">
 </form></td>
 </tr>
 <tr>
 <td>
 <form method="post">
-<input type="submit" value="Education Questions" >
+<input type="submit" class="myButton3" value="Education Questions" >
 <input type="hidden" name="genre" value="Education">
 </form></td>
 </tr>
 <tr>
 <td>
 <form method="post">
-<input type="submit" value="World News Questions">
+<input type="submit" class="myButton3" value="World News Questions">
 <input type="hidden" name="genre"  value="World News">
 </form></td>
 </tr>
@@ -100,7 +103,7 @@ echo <<<_END
 
 
 <table style="width:1000px">
-<table border="2">
+<table class="flat-table flat-table-1" border="2">
 <tr>
   <td>Question</td>
 <td>See question data</td>
@@ -114,7 +117,7 @@ while ( $row = oci_fetch_array($statement, OCI_NUM)) {
             echo "<td>".$row[0]."</td>";
             echo "<td style='text-align:center;vertical-align:middle'>";
                 echo "<form method=\"post\" action=\"displayQuestion1.php\">";
-                echo "<input type=\"submit\" value=\"Question data\" >";
+                echo "<input type=\"submit\" class=\"myButton3\"value=\"Question data\" >";
                     echo "<input type=\"hidden\" name=\"qid\"  value=".$row[2].">";
                     echo "</form></td>";
                         echo "<td>".$row[1]."</td></tr>";
