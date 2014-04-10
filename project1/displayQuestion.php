@@ -8,8 +8,23 @@ echo <<<_END
 <table align="right"  style="float: left" class="box" border="1px" width="60%">
 <tr>
 <TH>Total Answers</TH>
-<TH>Total Yes's</TH>
-<TH>Total No's</TH>
+_END;
+
+$sql = "select yes from Questions where q_id =$qid";
+$statement = oci_parse($conn, $sql);
+oci_execute($statement);
+$rowyes = oci_fetch_array($statement, OCI_NUM);
+
+echo "<TH>Total People who answered ".$rowyes[0]."</TH>";
+
+
+$sql = "select no from Questions where q_id =$qid";
+$statement = oci_parse($conn, $sql);
+oci_execute($statement);
+$rowno = oci_fetch_array($statement, OCI_NUM);
+echo "<TH>Total People who answered ".$rowno[0]."</TH>";
+
+echo <<<_END
 <TH>Genre</TH>
 </tr><tr align="center">
 _END;
@@ -120,14 +135,15 @@ echo <<<_END
                     type: "pie",
                     startAngle: 150,
                     data: [{
-                        category: "No", 
 _END;
+echo                "category: \"".$rowno[0]."\",";
 echo                        "value:".$no. ",";
 echo <<<_END
                       color: "#9de219"
                     },{
-                        category: "Yes",                 
 _END;
+echo                "category: \"".$rowyes[0]."\",";                 
+
 echo                    "value:".$yes. ",";                        
 echo <<<_END
                         color: "#87CEEB"

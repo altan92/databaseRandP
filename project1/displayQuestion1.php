@@ -6,16 +6,32 @@ $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
 
 
+
 echo <<<_END
 <!DOCTYPE html>
 <html>
 <body>
 
-<table align="right"  style="float: left" class="box" border="1px" width="65%">
+<table align="right"  style="float: left" class="box" border="1px" width="60%">
 <tr>
 <TH>Total Answers</TH>
-<TH>Total Yes's</TH>
-<TH>Total No's</TH>
+_END;
+
+$sql = "select yes from Questions where q_id =$qid";
+$statement = oci_parse($conn, $sql);
+oci_execute($statement);
+$rowyes = oci_fetch_array($statement, OCI_NUM);
+
+echo "<TH>Total People who answered ".$rowyes[0]."</TH>";
+
+
+$sql = "select no from Questions where q_id =$qid";
+$statement = oci_parse($conn, $sql);
+oci_execute($statement);
+$rowno = oci_fetch_array($statement, OCI_NUM);
+echo "<TH>Total People who answered ".$rowno[0]."</TH>";
+
+echo <<<_END
 <TH>Genre</TH>
 </tr><tr align="center">
 _END;
@@ -126,14 +142,15 @@ echo <<<_END
                     type: "pie",
                     startAngle: 150,
                     data: [{
-                        category: "No", 
 _END;
+echo                "category: \"".$rowno[0]."\",";
 echo                        "value:".$no. ",";
 echo <<<_END
                       color: "#9de219"
                     },{
-                        category: "Yes",                 
 _END;
+echo                "category: \"".$rowyes[0]."\",";                 
+
 echo                    "value:".$yes. ",";                        
 echo <<<_END
                         color: "#87CEEB"
@@ -157,6 +174,7 @@ echo <<<_END
 </html>
 _END;
 
+
 echo <<<_END
 <form action=commentbox.php method='GET'>
         <font color="white">See comments</font><br />
@@ -166,13 +184,13 @@ echo <<<_END
          <input type='submit' value='Submit' />  
           </form>
 _END;
+
 echo <<<_END
 <form action=index.php method='GET'>
         <font color="white">Back to questions</font><br />
-         <input type='submit' value='Submit' />  
+         <input type='submit' value='Back to questions' />  
           </form>
 _END;
-
 include_once('map1.php');
 
 ?>
