@@ -69,7 +69,8 @@ li a:hover, .button: hover{
 }
 
 .main {
-        margin-left:40px;}
+        margin-left:40px;
+        float:left;}
 
 .info{
         background: lightgreen;

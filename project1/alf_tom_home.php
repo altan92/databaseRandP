@@ -34,7 +34,7 @@ echo <<<_END
                 <li id="services"><a href='logout.php'>Log out</a></li>
                 <li id="about"><a href='index.php'>Browse questions</a></li>
                 <li id="seequestions"><a href='seequestion.php'>See all questions</a></li>
-                <li id="contact"><a href="#contact">Contact us</a></li>
+                <li id="contact"><a href=contact.php>Contact us</a></li>
             </ul><br />    
             
         </nav>
@@ -55,7 +55,7 @@ echo <<<_END
                 <li id="news"><a href=about.php>About us</a></li>
                 <li id="about"><a href='signup.php'>Sign up</a></li>
                 <li id="services"><a href='login.php'>Log in</a></li>
-                <li id="contact"><a href="#contact">Contact us</a></li>
+                <li id="contact"><a href=contact.php>Contact us</a></li>
             </ul><br />    
             
         </nav>
