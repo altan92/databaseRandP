@@ -22,10 +22,6 @@ echo <<<_END
         <td>$res[3]</td>
 </tr>
 <tr>
-        <td>Password</td>
-        <td>$res[0]</td>
-</tr>
-<tr>
         <td>Gender</td>
         <td>$res[1]</td>
 </tr>
@@ -37,26 +33,88 @@ echo <<<_END
         <td>Location</td>
         <td>$result[1]</td>
 </tr>
-
-<tr>
-        <td>Interests</td>
-        <td>
+</table>
 _END;
-while($iname=oci_fetch_row($interest)){
+if ($iname=oci_fetch_row($interest)){
+    echo <<<_END
+    <h3>Your Interests</h3>
+    <table class="flat-table flat-table-1" border="2">    
+    <tr>
+        <td>$iname[1]</td>
+</tr>
+_END;
+
+    while($iname=oci_fetch_row($interest)){
 echo <<<_END
+        <tr>
+        <td>
         $iname[1]<br />
+        </td>
+        </tr>
+</div>
 _END;
 }
 echo <<<_END
-</td>
-</tr>
-</table></div>
-<div class="main" style="color:white;">
-<h3>Here are the questions that you have answered:</h3>
+</table>
+_END;
+}
+echo <<<_END
+<form action=addInterest.php method='GET'>
+<font color="white">Add an interest</font><br />
+<input type='submit' value='Add Interest!' />  
+</form>
 </div>
+_END;
+
+
+$stid=oci_parse($conn, "select Q.question,P.answer,Q.q_id from Polls P,Questions Q where P.username='$user' AND Q.q_id=P.q_id");
+oci_execute($stid, OCI_DEFAULT);
+
+
+echo <<<_END
+<div class="main" style="color:white;">
+<h3>Here are the questions that you have answered</h3>
+</div>
+
+<table class="flat-table flat-table-1" border="2">
+<tr><td>Question</td><td>Answer</td><td>See question data</td></tr>
+_END;
+
+
+while($res=oci_fetch_row($stid)){
+
+if ($res[1]==1){
+$stid1=oci_parse($conn, "select yes from Questions where q_id=$res[2]");
+oci_execute($stid1, OCI_DEFAULT);
+$ans=oci_fetch_row($stid1);
+}
+else{
+$stid1=oci_parse($conn, "select no from Questions where q_id=$res[2]");
+oci_execute($stid1, OCI_DEFAULT);
+$ans=oci_fetch_row($stid1);
+
+}
+print "<tr><td>".$res[0]."</td><td>".$ans[0];
+
+echo <<<_END
+<td>
+<form action=displayQuestion1.php method='POST'>
+_END;
+echo "<input type=\"hidden\" name=\"qid\"  value=".$res[2].">";
+echo <<<_END
+<input type='submit' value='See Question data' />  
+</form>
+_END;
+
+print "</td></tr>";
+}
+echo <<<_END
+</table>
+
 </div>
 </body></html>
 _END;
+
 oci_close($conn);
 ?>
 
