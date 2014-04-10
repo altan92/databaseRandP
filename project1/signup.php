@@ -18,7 +18,7 @@ echo <<<_END
  
 <form name="form1" method="post" action="checknewuser.php">
 <td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" background-image: "url('bg_tile.jpg')" style='margin-left:500px' >
+<table width="100%" border="0" cellpadding="3" cellspacing="1" background-image: "url('bg_tile.jpg')" >
 <tr>
 <td colspan="3"><strong>Member Login </strong></td>
 </tr>
@@ -87,7 +87,15 @@ echo <<<_END
 </tr>
 
 <td>Age</td>
-<td><input name="age" type="text" id="age"></td>
+<td><select name="age">
+_END;
+$count=1;
+while ($count<100){
+    echo "<option value=".$count.">".$count."</option>";
+    $count=$count+1;
+}
+
+echo <<<_END
 </tr>
 
 <td>Gender</td>
