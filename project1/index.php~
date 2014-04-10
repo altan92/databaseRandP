@@ -38,7 +38,7 @@ _END;
 while($res= oci_fetch_row($stmt))
 {
     echo "<li>" .
-        "<div class='caption' style='margin-top:10px; font-size:20pt;'>" .
+        "<div class='caption' style='margin-top:10px;'>" .
 	"$res[1]" .
         "</div>" .
         "<br>" .

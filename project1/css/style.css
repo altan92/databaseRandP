@@ -41,7 +41,8 @@ h1 {
   padding-top: 225px;
   width: 1000px;
   height: 800px;
-  background: white;
+  //background: red; 
+  background-image:url("../bg_tile.jpg");
   text-align: center;
   //line-height: 300px;
 }
