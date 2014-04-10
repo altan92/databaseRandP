@@ -9,8 +9,6 @@ oci_execute($stmt, OCI_DEFAULT);
 
 $user=$_SESSION['user'];
 
-//$question= $res[1];
-//echo $question;
 echo <<<_END
 <!DOCTYPE html>
 <html>
@@ -41,7 +39,7 @@ while($res= oci_fetch_row($stmt))
 	"$res[1]" .
         "<br>" .
         '<div class="center">' .
-         '<form action="updateAns.php"  method="get">'.
+         '<form action="updateAns.php" method="get">'.
           '<button type="submit" class="myButton1">'."$res[2]".'</button>'.
           '<input type="hidden" name="val" value='.$res[0].'>'.
           '<input type="hidden" name="ans" value=1>'.
@@ -58,27 +56,13 @@ while($res= oci_fetch_row($stmt))
           '</div>' .
 	"</li>";
 
-if (isset($_GET['val'])){
-    print "Success";    
-    $q_id=$_GET['val'];
-    
-    print $q_id;
-}
-
-
-else
-    print "failure";
-
-
-unset($_POST['val']);
-
 }
 
 echo <<<_END
   </ul>  
 </div>
 
-
+    
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
   <script src="js/index.js"></script>

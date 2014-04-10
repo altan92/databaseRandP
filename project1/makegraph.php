@@ -15,7 +15,6 @@ echo <<<_END
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="http://demos.telerik.com/kendo-ui/dataviz/pie-charts/index.html">
     <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
     <title></title>
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
@@ -35,7 +34,7 @@ echo <<<_END
             $("#chart").kendoChart({
                 title: {
                     position: "bottom",
-                    text: "Share of Internet Population Growth, 2007 - 2012"
+                    text: "Percentages of the question"
                 },
                 legend: {
                     visible: false
@@ -84,4 +83,5 @@ echo <<<_END
 </body>
 </html>
 _END;
+include_once('map1.php');
 ?>

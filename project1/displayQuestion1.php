@@ -1,5 +1,6 @@
 <?php
-//$qid=$_SESSION["val"];
+include_once 'alf_tom_home.php';
+$qid=$_POST["qid"];
 ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
@@ -87,7 +88,6 @@ echo <<<_END
     <!DOCTYPE html>
 <html>
 <head>
-    <base href="http://demos.telerik.com/kendo-ui/dataviz/pie-charts/index.html">
     <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
     <title></title>
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
@@ -107,7 +107,7 @@ echo <<<_END
             $("#chart").kendoChart({
                 title: {
                     position: "bottom",
-                    text: "Share of Internet Population Growth, 2007 - 2012"
+                    text: "Percentage of Data"
                 },
                 legend: {
                     visible: false
@@ -157,6 +157,16 @@ echo <<<_END
 </html>
 _END;
 
+echo <<<_END
+<form action=commentbox.php method='GET'>
+        <font color="white">See comments</font><br />
+_END;
+echo "<input type=\"hidden\" name=\"qid\"  value=".$qid.">"; 
+echo <<<_END
+         <input type='submit' value='Submit' />  
+          </form>
+_END;
 
+include_once('map1.php');
 
 ?>

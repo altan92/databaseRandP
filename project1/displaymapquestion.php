@@ -1,7 +1,6 @@
 <?php
-include_once "alf_tom_main.php";
-$qid=$_POST["qid"];
-$state=$_POST["state"];
+$qid=$_GET["qid"];
+$state=$_GET["state"];
 ini_set('display_errors', 'On');
 $db = "w4111c.cs.columbia.edu:1521/adb";
 $conn = oci_connect("ti2181", "yungalf01", $db);
@@ -109,7 +108,7 @@ echo <<<_END
             $("#chart").kendoChart({
                 title: {
                     position: "bottom",
-                    text: "Share of Internet Population Growth, 2007 - 2012"
+                    text: "Percentage by state"
                 },
                 legend: {
                     visible: false
